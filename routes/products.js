@@ -24,6 +24,8 @@ router.get("/new", ProductController.new)
 // create route - adds product to db
 router.post("/", ProductController.create)
 
+// show route - displays info about one item
+router.get("/:id", ProductController.show)
 
 ///////////////////////////////////
 // Export 

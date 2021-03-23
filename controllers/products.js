@@ -97,6 +97,18 @@ const create = async (req, res) => {
     res.redirect("/products")
 }
 
+// show - info about one product
+const show = async (req, res) => {
+  // console.log(req.params.id)
+  const id = req.params.id
+  const product = await Product.find({_id: id})
+  // console.log(product)
+  // console.log(product[0].name)
+  //render show view
+  res.render("products/show", {
+    product
+  })
+}
 
 
 //////////////////////////////////
@@ -108,5 +120,6 @@ module.exports = {
     seed, 
     new: newProduct, 
     jsonInfo, 
-    create
+    create, 
+    show
 }
