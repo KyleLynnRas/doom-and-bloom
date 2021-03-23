@@ -10,7 +10,7 @@ const ProductSchema = new Schema({
     description: String, 
     img: String,
     price: {type: Number, min: 1},
-    qty: {type: Number, min: 1},
+    qty: {type: Number, min: 0},
 })
 
 ///////////////////////////////////

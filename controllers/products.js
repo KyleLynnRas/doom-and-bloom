@@ -74,7 +74,7 @@ const jsonInfo = async (req, res) => {
     res.send(newProducts)
 }
 
-// /index view - listing all products 
+// index - listing all products 
 const index = async (req, res) => {
     const newProducts = await Product.find({})
     //renders index view 
@@ -83,9 +83,18 @@ const index = async (req, res) => {
         })
     }
 
-// /new view (adding a new product)
-const newProduct = (req, res) => {
-    res.send("<h1>New Product</h1>")
+// new - adding a new product
+const newProduct = async (req, res) => {
+   //render new view
+   res.render("products/new")
+
+}
+
+// create - add product to db, redirect to index
+const create = async (req, res) => {
+    //add to db
+    await Product.create(req.body)
+    res.redirect("/products")
 }
 
 
@@ -98,5 +107,6 @@ module.exports = {
     index, 
     seed, 
     new: newProduct, 
-    jsonInfo 
+    jsonInfo, 
+    create
 }

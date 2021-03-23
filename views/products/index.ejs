@@ -10,11 +10,10 @@
 <body>
     <h1>Plants for sale:</h1>
     <% for (product of newProducts) { %>
-    
         <h2><%= product.name %></h2>
         <a href="/products/<%= product._id %>" class="href"><img src="<%= product.img %>"></a>
         <p>$<%= product.price %></p>  
     <%  } %>
-     <a href="/products/new" class="href">Add a new plant</a>
+     <a href="/products/new" class="href">Sell your plants!</a>
 </body>
 </html>

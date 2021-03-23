@@ -21,6 +21,10 @@ router.get("/", ProductController.index)
 // new route to /products/new
 router.get("/new", ProductController.new)
 
+// create route - adds product to db
+router.post("/", ProductController.create)
+
+
 ///////////////////////////////////
 // Export 
 ///////////////////////////////////
