@@ -110,6 +110,15 @@ const show = async (req, res) => {
   })
 }
 
+// destroy - delete a product 
+const destroy = async (req, res) => {
+  const id = req.params.id
+  //delete product
+  await Product.findByIdAndDelete(id)
+  //redirect to index 
+  res.redirect("/products")
+}
+
 
 //////////////////////////////////
 // Export
@@ -121,5 +130,6 @@ module.exports = {
     new: newProduct, 
     jsonInfo, 
     create, 
-    show
+    show, 
+    destroy
 }

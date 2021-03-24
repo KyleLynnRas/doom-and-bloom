@@ -27,6 +27,12 @@ router.post("/", ProductController.create)
 // show route - displays info about one item
 router.get("/:id", ProductController.show)
 
+// show route - displays info about one item
+router.get("/:id", ProductController.show)
+
+// destroy route- delete a product
+router.delete("/:id", ProductController.destroy)
+
 ///////////////////////////////////
 // Export 
 ///////////////////////////////////

@@ -8,11 +8,16 @@
 </head>
 <body>
     <!--show view-->
-    <h1><%= product[0].name %></h1>
-    <img src="<%= product[0].img %>">
-    <p><%= product[0].description %></p>
-    <p>Price: $<%= product[0].price%></p>
-    <p>In stock: <%= product[0].qty %></p>
-    
+    <main>
+        <h1><%= product[0].name %></h1>
+        <img src="<%= product[0].img %>">
+        <p><%= product[0].description %></p>
+        <p>Price: $<%= product[0].price%></p>
+        <p>In stock: <%= product[0].qty %></p>
+
+        <form action="/products/<%= product[0]._id %>?_method=DELETE" method="post">
+            <input type="submit" value="Delete">
+        </form>
+    </main> 
 </body>
 </html>
