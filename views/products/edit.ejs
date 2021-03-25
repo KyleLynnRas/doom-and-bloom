@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Plants</title>
+</head>
+<body>
+    <h1>Edit Plant</h1>
+
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+        <h2>Name:</h2>
+        <input type="text" name="name" value="<%= product.name %>">
+        <h2>Description:</h2>
+        <input type="text" name="description" value="<%= product.description %>">
+        <h2>Image:</h2>
+        <input type="text" name="img" value="<%= product.img %>">
+        <h2>Price:</h2>
+        <input type="text" name="price" value="<%= product.price %>">
+        <h2>In stock:</h2>
+        <input type="text" name="qty" value="<%= product.qty %>">
+        <br>
+        <button type="submit">Edit Plant</button>
+    </form>
+
+</body>
+</html>

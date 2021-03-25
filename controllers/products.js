@@ -101,9 +101,7 @@ const create = async (req, res) => {
 const show = async (req, res) => {
   // console.log(req.params.id)
   const id = req.params.id
-  const product = await Product.find({_id: id})
-  // console.log(product)
-  // console.log(product[0].name)
+  const product = await Product.findById(id)
   //render show view
   res.render("products/show", {
     product
@@ -119,6 +117,25 @@ const destroy = async (req, res) => {
   res.redirect("/products")
 }
 
+// edit - directs to edit view
+const edit = async (req, res) => {
+  const id = req.params.id
+  const product = await Product.findById(id)
+  //render show view
+  res.render("products/edit", {
+    product
+  })
+}
+
+// update - update product info
+const update = async (req, res) => {
+  console.log(req.body)
+  const id = req.params.id
+  //update product
+  await Product.findByIdAndUpdate(id, req.body, {new: true} )
+  //redirect to show view
+  res.redirect(`/products/${id}`)
+}
 
 //////////////////////////////////
 // Export
@@ -131,5 +148,7 @@ module.exports = {
     jsonInfo, 
     create, 
     show, 
-    destroy
+    destroy, 
+    edit, 
+    update
 }

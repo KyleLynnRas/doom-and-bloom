@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
 <body>
     <!--show view-->
     <main>
-        <h1><%= product[0].name %></h1>
-        <img src="<%= product[0].img %>">
-        <p><%= product[0].description %></p>
-        <p>Price: $<%= product[0].price%></p>
-        <p>In stock: <%= product[0].qty %></p>
+        <h1><%= product.name %></h1>
+        <img src="<%= product.img %>">
+        <p><%= product.description %></p>
+        <p>Price: $<%= product.price%></p>
+        <p>In stock: <%= product.qty %></p>
 
-        <form action="/products/<%= product[0]._id %>?_method=DELETE" method="post">
+        <form action="/products/<%= product._id %>?_method=DELETE" method="post">
             <input type="submit" value="Delete">
         </form>
+        <a href="/products/<%= product._id %>/edit" class="href">Edit</a>
+        <a href="/products" class="href">Back</a>
     </main> 
 </body>
 </html>
