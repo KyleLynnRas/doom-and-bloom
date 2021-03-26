@@ -137,6 +137,15 @@ const update = async (req, res) => {
   res.redirect(`/products/${id}`)
 }
 
+// buy - decrease qty by 1 
+const buy = async (req, res) => {
+  const id = req.params.id
+  // decrease product by 1 
+  await Product.findByIdAndUpdate(id, {$inc: {qty: -1}})
+  // redirect to show page
+  res.redirect(`/products/${id}`)
+}
+
 //////////////////////////////////
 // Export
 //////////////////////////////////
@@ -150,5 +159,6 @@ module.exports = {
     show, 
     destroy, 
     edit, 
-    update
+    update, 
+    buy
 }

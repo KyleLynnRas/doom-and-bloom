@@ -33,6 +33,9 @@ router.post("/", ProductController.create)
 // edit route - directs to edit form
 router.get("/:id/edit", ProductController.edit)
 
+// buy route 
+router.get("/buy/:id", ProductController.buy)
+
 // show route - displays info about one item
 router.get("/:id", ProductController.show)
 

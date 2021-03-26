@@ -14,11 +14,12 @@
         <img src="<%= product.img %>">
         <p><%= product.description %></p>
         <p>Price: $<%= product.price%></p>
-        <p>In stock: <%= product.qty %></p>
-
+        <p class= "<%= product.qty > 0 ? 'stock' : 'hide' %>">In stock: <%= product.qty %></p>
+        <p class="<%= product.qty <= 0 ? 'stock' : 'hide' %>">Out of stock</p>
         <form action="/products/<%= product._id %>?_method=DELETE" method="post">
             <input type="submit" value="Delete">
         </form>
+        <a href="/products/buy/<%= product._id %>" class="<%= product.qty <= 0 ? 'hide' : 'buy-btn' %>"><button>Buy</button></a>
         <a href="/products/<%= product._id %>/edit" class="href">Edit</a>
         <a href="/products" class="href">Back</a>
     </main> 

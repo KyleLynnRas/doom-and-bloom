@@ -13,6 +13,8 @@
         <h2><%= product.name %></h2>
         <a href="/products/<%= product._id %>" class="href"><img src="<%= product.img %>"></a>
         <p>$<%= product.price %></p>  
+        <p class= "<%= product.qty > 0 ? 'stock' : 'hide' %>">In stock: <%= product.qty %></p>
+        <p class="<%= product.qty <= 0 ? 'stock' : 'hide' %>">Out of stock</p>
     <%  } %>
      <a href="/products/new" class="href">Sell your plants!</a>
 </body>
