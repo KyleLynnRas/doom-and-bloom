@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>Doom & Bloom</title>
 </head>
 <body>
     <!--show view-->
-    <main>
+    <main class="main-show">
         <h1><%= product.name %></h1>
         <img src="<%= product.img %>">
         <p><%= product.description %></p>
         <p>Price: $<%= product.price%></p>
         <p class= "<%= product.qty > 0 ? 'stock' : 'hide' %>">In stock: <%= product.qty %></p>
         <p class="<%= product.qty <= 0 ? 'stock' : 'hide' %>">Out of stock</p>
-        <form action="/products/<%= product._id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete">
-        </form>
-        <a href="/products/buy/<%= product._id %>" class="<%= product.qty <= 0 ? 'hide' : 'buy-btn' %>"><button>Buy</button></a>
-        <a href="/products/<%= product._id %>/edit" class="href">Edit</a>
-        <a href="/products" class="href">Back</a>
+        <div class="button-box">
+            <form action="/products/<%= product._id %>?_method=DELETE" method="post">
+                <input type="submit" value="Delete">
+            </form>
+            <a href="/products/buy/<%= product._id %>" class="<%= product.qty <= 0 ? 'hide' : 'buy-btn' %>"><button>Buy</button></a>
+            <a href="/products/<%= product._id %>/edit" class="href"><button>Edit</button></a>
+            <a href="/products" class="href"><button>Back</button></a>
+        </div>
     </main> 
 </body>
 </html>

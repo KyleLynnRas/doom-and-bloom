@@ -1,8 +1,210 @@
-body {
-    color: purple;
+* {
+    margin: 0;
+    padding: 0; 
+    /* border: 1px solid orchid; */
+    font-family: 'Poppins', sans-serif;
 }
 
-/*--hide qty/buy --*/
+/*--hide buy/ out of stock bar --*/
 .hide {
     visibility: hidden;
+}
+
+/*-----HOME PAGE-----*/
+.home-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://i.imgur.com/yaJneRY.jpg");
+    background-size: cover;
+    height: 700px;
+}
+
+.home-pg-title {
+    background: rgba(133, 132, 132, 0.685);
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.home-pg-title h1 {
+  font-size: 40px;;
+}
+
+.home-plant-link{
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+}
+
+/*--skull icons--*/
+.left {
+   margin-left: 8px;
+}
+
+.right {
+    margin-right: 8px;
+}
+
+/*--links--*/
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.shop-link:hover {
+    color:rgb(51, 156, 30); 
+    font-size: 25px;
+}
+
+ /*-----INDEX VIEW-----*/
+ .index-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://i.imgur.com/hqtfZs9.jpg");
+    background-size: cover;
+    height: 300px;
+}
+
+.index-header-text {
+    background: rgba(133, 132, 132, 0.685);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    padding-top: 20px;
+}
+
+.main-index {
+    width: 100vh;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.plant-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 300px;
+    margin: 40px;
+    text-align: center;
+}
+
+.plant-container img {
+    max-height: 180px;
+    border: 2px solid black;
+}
+
+.plant-container img:hover {
+    border: 4px solid rgb(104, 161, 64);
+}
+
+.index-nav {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+    background: rgba(133, 132, 132, 0.897);
+    padding-top: 10px;
+    height: 25px;
+    width: 100%;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+footer {
+    height: 150px;
+    background-color: rgba(133, 132, 132, 0.897);
+    display: flex;
+    align-items: center;
+}
+
+.style {
+    margin-left: 30px;
+    margin-right: 3px;;
+}
+
+ /*-----NEW VIEW-----*/
+ .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://i.imgur.com/hqtfZs9.jpg");
+    background-size: cover;
+    height: 300px;
+}
+
+.header-text {
+    background: rgba(133, 132, 132, 0.685);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px auto;
+}
+
+.form {
+    margin: 60px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    margin: 10px;
+}
+
+.submit-btn {
+    margin: 15px;
+    padding: 7px;
+    width: 70px;
+}
+
+.edit {
+    width: 80px;
+}
+
+.submit-btn:hover {
+    background-color: #FB8604;
+}
+
+/*-----SHOW VIEW-----*/
+.main-show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-box {
+    display: flex;  
+    /* justify-content: space-between;
+    align-items: center; */
 }

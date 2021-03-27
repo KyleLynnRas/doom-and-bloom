@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <title>Plants</title>
+    <title>Doom & Bloom</title>
 </head>
 <body>
-    <h1>Edit Plant</h1>
-
-    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-        <h2>Name:</h2>
-        <input type="text" name="name" value="<%= product.name %>">
-        <h2>Description:</h2>
-        <input type="text" name="description" value="<%= product.description %>">
-        <h2>Image:</h2>
-        <input type="text" name="img" value="<%= product.img %>">
-        <h2>Price:</h2>
-        <input type="text" name="price" value="<%= product.price %>">
-        <h2>In stock:</h2>
-        <input type="text" name="qty" value="<%= product.qty %>">
-        <br>
-        <button type="submit">Edit Plant</button>
-    </form>
-
+    <header class="header">
+        <div class="header-text">
+            <h1>Let's make some changes!</h1>
+        </div>
+    </header>
+    <main class="form">
+        <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+            <h2 class="title">Name:</h2>
+            <input type="text" name="name" value="<%= product.name %>">
+            <h2 class="title">Description:</h2>
+            <input type="text" name="description" value="<%= product.description %>">
+            <h2 class="title">Image:</h2>
+            <input type="text" name="img" value="<%= product.img %>">
+            <h2 class="title">Price:</h2>
+            <input type="text" name="price" value="<%= product.price %>">
+            <h2 class="title">In stock:</h2>
+            <input type="text" name="qty" value="<%= product.qty %>">
+            <br>
+            <button class="submit-btn edit" type="submit">Edit Plant</button>
+        </form>
+    </main>
+    <footer></footer>
 </body>
 </html>

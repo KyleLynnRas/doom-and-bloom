@@ -4,18 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ff0f48e880.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <title>Plants</title>
+    <title>Doom & Bloom</title>
 </head>
 <body>
-    <h1>Plants for sale:</h1>
+    <header class="index-header">
+        <div class="index-header-text">
+            <h1>Doom & Bloom</h1>
+            <p>Plant collection</p>
+            <nav class="index-nav">
+                <a href="/" class="index-nav-link">Home</a>
+                <a href="/products/json" class="index-nav-link">Inventory</a>
+                <a href="/products/new" class="index-nav-link">Sell a plant</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-index">
+
     <% for (product of newProducts) { %>
-        <h2><%= product.name %></h2>
-        <a href="/products/<%= product._id %>" class="href"><img src="<%= product.img %>"></a>
-        <p>$<%= product.price %></p>  
-        <p class= "<%= product.qty > 0 ? 'stock' : 'hide' %>">In stock: <%= product.qty %></p>
-        <p class="<%= product.qty <= 0 ? 'stock' : 'hide' %>">Out of stock</p>
-    <%  } %>
-     <a href="/products/new" class="href">Sell your plants!</a>
+        <div class="plant-container">
+            <div class="index-image-container">
+                <a href="/products/<%= product._id %>"><img src="<%= product.img %>" class="product-img"></a>
+            </div>
+            <h2><%= product.name %></h2>
+            <p>$<%= product.price %></p>  
+             <% if (product.qty > 0 ) { %>
+            <p>In stock: <%= product.qty %></p>
+            <% } else { %>             
+            <p>Out of stock</p>
+            <%}%>
+        </div>
+     <%  } %>
+    </main>
+    <footer>
+        <i class="fas fa-skull style"></i><a href="/style.css" class="style-link">Click here to see how this page is styled!</a>
+    </footer>
 </body>
 </html>
