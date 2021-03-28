@@ -27,6 +27,9 @@ router.get('/signin', UserController.signIn)
 // log in using form info
 router.post("/login", UserController.logIn)
 
+// sign out 
+router.get('/signout', UserController.signOut);
+
 //////////////////////////////////
 // Router Specific Routes
 //////////////////////////////////

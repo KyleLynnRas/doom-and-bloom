@@ -55,6 +55,17 @@ const logIn = (req, res) => {
     })
 }
 
+// sign out 
+const signOut = (req, res) => {
+    //end user session
+    req.session.destroy( (error) => {
+        delete req.user
+        //redirect to main 
+        res.redirect("/")
+    })
+}
+
+
 //////////////////////////////////
 // Export
 //////////////////////////////////
@@ -63,5 +74,6 @@ module.exports = {
    new: newUser, 
    signUp, 
    signIn, 
-   logIn
+   logIn, 
+   signOut
 }
