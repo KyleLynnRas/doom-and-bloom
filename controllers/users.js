@@ -25,13 +25,43 @@ const signUp = (req, res) => {
     })
 }
 
+// log in form 
+const signIn = (req, res) => {
+    // res.render("users/login")
+    res.render("users/login")
+}
 
+// login - find user and check credentials 
+const logIn = (req, res) => {
+    User.findOne({ username: req.body.username
+    }, (error, authUser) => {
+        //if user not found send to signin 
+        if (authUser === null){
+            res.redirect("/users/signin")
+        } else {
+            //check passwords
+            const passwordCheck = bcrypt.compareSync(req.body.password, authUser.password)
+            if (passwordCheck) {
+                //if match, add user info to sesion
+                req.session.userId = authUser._id;
+                console.log(req.session)
+                //send user to products index view 
+                res.redirect("/products")
+            } else {
+                // send to sign in again 
+                res.redirect("users/signin")
+            }
+        }
+    })
+}
 
 //////////////////////////////////
 // Export
 //////////////////////////////////
 
 module.exports = {
-   new:newUser, 
-   signUp
+   new: newUser, 
+   signUp, 
+   signIn, 
+   logIn
 }
