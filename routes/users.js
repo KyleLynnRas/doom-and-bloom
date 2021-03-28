@@ -1,27 +1,26 @@
+//////////////////////////////////
+// Import dependency
+//////////////////////////////////
 //new router 
 const router = require("express").Router()
-//importing products router
-const ProductsRouter = require("./products")
-//import user router
-const UserRouter = require("./users")
+//import user controller 
+const UserController = require("../controllers/users")
 
 //////////////////////////////////
 // Router Specific Middleware
 //////////////////////////////////
-router.use("/products", ProductsRouter)
 
-//import user router
-router.use("/user", UserRouter)
 
 //////////////////////////////////
 // Router Specific Routes
 //////////////////////////////////
 
-//home page:
-router.get("/", (req, res) => {
-    //render home view 
-    res.render("index")
-})
+// new user sign up form 
+router.get('/new', UserController.new);
+
+//create new user from form 
+router.post('/signup', UserController.signUp);
+
 
 
 //////////////////////////////////

@@ -2,7 +2,7 @@
 const {Schema, model} = require("../db/connection")
 
 ///////////////////////////////////
-// SCHEMA
+// PRODUCT SCHEMA
 ///////////////////////////////////
 
 const ProductSchema = new Schema({
