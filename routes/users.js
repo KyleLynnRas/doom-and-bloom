@@ -30,6 +30,9 @@ router.post("/login", UserController.logIn)
 // sign out 
 router.get('/signout', UserController.signOut);
 
+// show - user's shopping cart 
+router.get("/cart", UserController.show)
+
 //////////////////////////////////
 // Router Specific Routes
 //////////////////////////////////

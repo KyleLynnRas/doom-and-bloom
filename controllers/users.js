@@ -65,6 +65,18 @@ const signOut = (req, res) => {
     })
 }
 
+// show - shopping cart 
+const show = async (req, res) => {
+    //find user
+    const currentUser = await User.findById(req.session.userId)
+    //find user's cart 
+    const products = await User.findById(req.session.userId).populate("shopping_cart")
+    // console.log(products.shopping_cart)
+    res.render("users/show", {
+        currentUser, 
+        products: products.shopping_cart
+    })
+}
 
 //////////////////////////////////
 // Export
@@ -75,5 +87,6 @@ module.exports = {
    signUp, 
    signIn, 
    logIn, 
-   signOut
+   signOut, 
+   show
 }

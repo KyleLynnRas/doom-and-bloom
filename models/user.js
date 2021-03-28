@@ -8,7 +8,7 @@ const {Schema, model} = require("../db/connection")
 const UserSchema = new Schema({
     username: {type: String, unique: true, required: true},
     password: {type: String, required: true},
-    shopping_cart: []
+    shopping_cart: [{type: Schema.Types.ObjectId, ref: "Product"}]
 })
 
 ///////////////////////////////////

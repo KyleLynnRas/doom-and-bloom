@@ -2,9 +2,11 @@
 // Import Models
 //////////////////////////////////
 const Product = require("../models/product")
+const User = require('../models/user');
 
 // add seed data to DB: 
 const seed = async (req, res) => {
+    // await newProducts.deleteMany({}) 
     const newProducts = 
     [
         {
@@ -12,7 +14,7 @@ const seed = async (req, res) => {
             description: "Aloe vera is an easy to care for succulent. It requires bright, indirect sunlight and infrequent watering. Our aloe comes already potted",
             img: "https://i.imgur.com/rj9NkaF.jpg",
             price: 15,
-            qty: 10
+            qty: 10, 
           }, {
             name: "Dragon Tree",
             description: "The dragon tree (Dracaena marginata) can grow to be about 15 feet and can purify the air in your home! It needs bright, indirect sunlight to thrive. This plant is toxic to pets though, so best not to bring this one home if you have a pet.",
@@ -140,8 +142,18 @@ const update = async (req, res) => {
 // buy - decrease qty by 1 
 const buy = async (req, res) => {
   const id = req.params.id
-  // decrease product by 1 
-  await Product.findByIdAndUpdate(id, {$inc: {qty: -1}})
+  try {
+    // decrease product by 1 
+    await Product.findByIdAndUpdate(id, {$inc: {qty: -1}})
+    //define current user
+    const currentUser = await User.findById(req.session.userId)
+    // push current product into user's shopping cart
+    currentUser.shopping_cart.push(req.params.id)
+    currentUser.save()
+  } catch (err) {
+    res.send(err.message)
+  }
+
   // redirect to show page
   res.redirect(`/products/${id}`)
 }
