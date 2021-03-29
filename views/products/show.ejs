@@ -10,22 +10,26 @@
     <title>Doom & Bloom</title>
 </head>
 <body>
-    <!--show view-->
+    <header class="header">
+        <div class="header-text">
+            <h1><%= product.name %></h1>
+        </div>
+    </header>
     <main class="main-show">
-        <h1><%= product.name %></h1>
-        <img src="<%= product.img %>">
-        <p><%= product.description %></p>
+        <img class="product-show-img" src="<%= product.img %>">
+        <p class="product-descrip"><%= product.description %></p>
         <p>Price: $<%= product.price%></p>
         <p class= "<%= product.qty > 0 ? 'stock' : 'hide' %>">In stock: <%= product.qty %></p>
         <p class="<%= product.qty <= 0 ? 'stock' : 'hide' %>">Out of stock</p>
         <div class="button-box">
             <form action="/products/<%= product._id %>?_method=DELETE" method="post">
-                <input type="submit" value="Delete">
+                <input class="show-btn" type="submit" value="Delete">
             </form>
-            <a href="/products/buy/<%= product._id %>" class="<%= product.qty <= 0 ? 'hide' : 'buy-btn' %>"><button>Buy</button></a>
-            <a href="/products/<%= product._id %>/edit" class="href"><button>Edit</button></a>
-            <a href="/products" class="href"><button>Back</button></a>
+            <a href="/products/buy/<%= product._id %>" class="<%= product.qty <= 0 ? 'hide' : 'buy-btn' %>"><button class="show-link">Buy</button></a>
+            <a href="/products/<%= product._id %>/edit"><button class="show-link">Edit</button></a>
+            <a href="/products"><button class="show-link">Back</button></a>
         </div>
     </main> 
+    <footer></footer>
 </body>
 </html>

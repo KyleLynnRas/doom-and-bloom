@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 // add seed data to DB: 
 const seed = async (req, res) => {
-    // await newProducts.deleteMany({}) 
+    await newProducts.deleteMany({}) 
     const newProducts = 
     [
         {

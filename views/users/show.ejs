@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Doom & Bloom</title>
 </head>
 <body>
-    <h1>Shopping Cart</h1>
-    
-    <p><%= currentUser.username %>'s plants:</p>
-    <% for (product of products) { %>
-        <h3><%= product.name %></h3>
-        <p>$<%= product.price %></p>
-    <% } %>
-
-    <a href="/products">Back</a>
+    <header class="header">
+        <div class="header-text">
+            <h1><%= currentUser.username %>'s Shopping Cart</h1>
+        </div>
+    </header>
+    <main class="cart-main">
+        <div class="cart-container">
+        <% for (product of products) { %>
+            <div class="item-container">
+                <img src="<%= product.img %>" class="cart-img">
+                <h4><%= product.name %></h4>
+                <p>$<%= product.price %></p>
+            </div>
+        <% } %>
+        </div>
+    </main>
+    <div class="cart-btn-container">
+        <a href="/products"><button class="submit-btn">Back</button></a>
+    </div>
 </body>
 </html>
